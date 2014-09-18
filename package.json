@@ -1,0 +1,14 @@
+{
+		
+	"name":"api",
+	"version":"0.0.1",
+	"dependencies":{
+
+		"express":"4.x",
+		"mongoose":"*",
+		"body-parser":"*",
+		"jade":"*"
+	}
+
+
+}
