@@ -9,7 +9,7 @@ exports.findallPersonas = function (req, res){
 			Persona.find(function (err,personas){
 				if (err) res.send(err);
 
-				res.json(personas);	
+				return res.json(personas);	
 			});	
 
 }
@@ -20,7 +20,7 @@ exports.findByIdPersona = function (req, res) {
 		Persona.findById(req.params.id,function (err,persona){
 			if (err) res.send(err);
 
-			res.json(persona);
+			return res.json(persona);
 		});
 
 }
@@ -39,7 +39,7 @@ exports.postPersona = function (req, res){
 	   		persona.save(function (err){
 	   			if(err) res.send(err);
 
-	   			res.json({mensaje:"persona creada"});
+	   			return res.json({mensaje:"persona creada"});
 
 	   		});
 
@@ -66,7 +66,7 @@ exports.putPersona = function (req, res){
 
 	   				if (err) res.send(err);
 
-	   				res.json({mensaje:"persona updated"});
+	   				return res.json({mensaje:"persona updated"});
 
 	   		});
 		});
@@ -81,9 +81,28 @@ exports.deletePersona = function (req, res){
 
 							if (err) res.send(err);
 
-							res.json({mensaje:"persona deleted"});
+						return	res.json({mensaje:"persona deleted"});
 
 					});
 
 			});
+}
+
+exports.deletePersonas = function (req, res){
+
+
+		Persona.find(function(err, personas){
+
+				personas.remove(function (err){
+
+					if (err) res.send(err);
+
+				return	res,json({mensaje:"personas deleted"});
+
+				});
+
+
+
+		});
+
 }

@@ -1,23 +1,17 @@
-var personaroute = require("../controllers/apicontroller"),
-	express = require("express"),
-	router = express.Router();
+var personaController = require("../controllers/apicontroller");
+	
+module.exports = function (app){
 
 
-module.exports = function(app){
+	app.route('/persona')
+		.get(personaController.findallPersonas)
+		.post(personaController.postPersona)
+		.delete(personaController.deletePersonas);
 
-
-router.route('/persona')
-	.get(personaroute.findallPersonas)
-	.post(personaroute.postPersona)
-	.delete(personaroute.deletePersona);
-
-router.route("/persona/:id")
-	.get(personaroute.findByIdPersona)
-	.put(personaroute.putPersona)
-	.delete(personaroute.deletePersona);
+	app.route('/persona/:id')
+		.get(personaController.findByIdPersona)
+		.put(personaController.putPersona)
+		.delete(personaController.deletePersona);
 
 	
 }
-
-
-
