@@ -1,14 +1,11 @@
 {
-		
-	"name":"api",
-	"version":"0.0.1",
-	"dependencies":{
-
-		"express":"4.x",
-		"mongoose":"*",
-		"body-parser":"*",
-		"jade":"*"
-	}
-
-
+  "name": "api",
+  "version": "0.0.1",
+  "dependencies": {
+    "body-parser": "*",
+    "express": "4.x",
+    "jade": "*",
+    "mongoose": "*",
+    "mysql": "^2.7.0"
+  }
 }

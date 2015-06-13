@@ -1,7 +1,8 @@
-var  express = require("express"),
+   var  express = require("express"),
 	 app	 = express(),
 	 bodyParser = require("body-parser"),
 	 mongoose = require("mongoose"),
+   mysql = require('mysql'),
 	 router = express.Router();
 
 //configurar app para usar body body-parser
@@ -37,10 +38,21 @@ app.use('/', router);
 
  // conexión con la bd mongo
 
-mongoose.connect("mongodb://localhost/personas",function (err, res){
+/*mongoose.connect("mongodb://localhost/personas",function (err, res){
 
 		if (err) console.log('dont connect to database' +err);
 		console.log('connected to BD');
+});*/
+var connection = mysql.createConnection({
+  host:'localhost',
+  user:'root',
+  password:'root',
+  database:'Express',
+  port:3306
+});
+connection.connect(function(err){
+  if(err) console.log('error en la conexion');
+  return console.log('conexion exitosa');
 });
 //servidor 
 var port = 3000;
